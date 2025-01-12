@@ -76,8 +76,10 @@ class VideoMaterial(models.Model):
 class TextMaterial(models.Model):
     text_name = models.CharField(max_length=255,
                                  verbose_name="Название текста")
-    text_file = models.TextField(max_length=10000,
+    text_field = models.TextField(max_length=10000,
                                  verbose_name="Текстовый материал к уроку")
+    text_file = models.FileField(null=True, blank=True, upload_to='text_materials/',
+                                  verbose_name="Текстовый файл к уроку")
     text_description = models.TextField(max_length=1000,
                                         verbose_name="Описание к тексту")
 
@@ -125,8 +127,6 @@ class Lessons(models.Model):
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
-
-
 
 
 # class Student(models.Model):

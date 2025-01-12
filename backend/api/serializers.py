@@ -40,4 +40,4 @@ class LessonsSerializer(serializers.ModelSerializer):
     text_file = TextMaterialSerializer()
     class Meta:
         model = Lessons
-        fields = ('id', 'lesson_name', 'lesson_description', 'video_file', 'text_file')
+        fields = ('id', 'lesson_name', 'lesson_description', 'lesson_course', 'video_file', 'text_file')

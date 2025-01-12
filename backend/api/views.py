@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 
 from api.models import Categories, Courses, Lessons, VideoMaterial, TextMaterial
+from api.filters import CoursesFilter, LessonsFilter
 
 from . import serializers
 
@@ -18,11 +19,17 @@ class CoursesViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CoursesSerializer
     pagination_class = None
 
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = CoursesFilter
+
 
 class LessonsViewSet(viewsets.ModelViewSet):
     queryset = Lessons.objects.all()
     serializer_class = serializers.LessonsSerializer
     pagination_class = None
+
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = LessonsFilter
 
 
 class VideoMaterialViewSet(viewsets.ModelViewSet):
