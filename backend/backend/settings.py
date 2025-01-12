@@ -91,8 +91,8 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'EducationalHub API',
-    'DESCRIPTION': 'EducationalHub description',
+    'TITLE': 'EducationHub API',
+    'DESCRIPTION': 'EducationHub description',
     'VERSION': '1.0.0',
     'SHEMA_PATH_PREFIX': '/api',
     'COMPONENT_SPLIT_REQUEST': True,
