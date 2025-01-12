@@ -57,6 +57,39 @@ class Courses(models.Model):
         verbose_name_plural = "Курсы"
 
 
+class VideoMaterial(models.Model):
+    video_name = models.CharField(max_length=255,
+                                  verbose_name="Название видео")
+    video_file = models.FileField(upload_to='video_materials/',
+                                  verbose_name="Видеоматериал к уроку")
+    video_description = models.TextField(max_length=1000,
+                                         verbose_name="Описание видео")
+
+    def __str__(self):
+        return f"{self.video_name}"
+
+    class Meta:
+        verbose_name = "Видеоматериал"
+        verbose_name_plural = "Видеоматериалы"
+
+
+class TextMaterial(models.Model):
+    text_name = models.CharField(max_length=255,
+                                 verbose_name="Название текста")
+    text_file = models.TextField(max_length=10000,
+                                 verbose_name="Текстовый материал к уроку")
+    text_description = models.TextField(max_length=1000,
+                                        verbose_name="Описание к тексту")
+
+    def __str__(self):
+        return f"{self.text_name}"
+
+    class Meta:
+        verbose_name = "Текстовый материал к уроку"
+        verbose_name_plural = "Текстовые материалы к уроку"
+
+
+
 class Lessons(models.Model):
     lesson_name = models.CharField(max_length=255, null=False, blank=False,
                                    verbose_name="Название урока")
@@ -67,18 +100,33 @@ class Lessons(models.Model):
         blank=False,
         verbose_name="Курс"
     )
-    lesson_number = models.PositiveIntegerField(
+    id = models.PositiveIntegerField(primary_key=True,
         verbose_name="Номер урока в курсе")
     lesson_description = models.TextField(
         max_length=300, verbose_name="Описание урока"
     )
+    video_file = models.ForeignKey(
+        to=VideoMaterial,
+        on_delete=models.DO_NOTHING,
+        null=True,
+        blank=True,
+        verbose_name="Видеоматериал к уроку")
+    
+    text_file = models.ForeignKey(
+        to=TextMaterial,
+        on_delete=models.DO_NOTHING,
+        null=True,
+        blank=True,
+        verbose_name="Текстовый материал к уроку")
 
     def __str__(self):
-        return f"{self.lesson_number}. {self.lesson_name}"
+        return f"{self.id}. {self.lesson_name}"
 
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
+
+
 
 
 # class Student(models.Model):
