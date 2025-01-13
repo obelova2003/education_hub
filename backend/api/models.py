@@ -102,7 +102,7 @@ class Lessons(models.Model):
         blank=False,
         verbose_name="Курс"
     )
-    id = models.PositiveIntegerField(primary_key=True,
+    lesson_number = models.PositiveIntegerField(default=0,
         verbose_name="Номер урока в курсе")
     lesson_description = models.TextField(
         max_length=300, verbose_name="Описание урока"
@@ -122,7 +122,7 @@ class Lessons(models.Model):
         verbose_name="Текстовый материал к уроку")
 
     def __str__(self):
-        return f"{self.id}. {self.lesson_name}"
+        return f"{self.lesson_number}. {self.lesson_name}"
 
     class Meta:
         verbose_name = "Урок"

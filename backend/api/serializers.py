@@ -25,14 +25,19 @@ class TextMaterialSerializer(serializers.ModelSerializer):
 class CoursesSerializer(serializers.ModelSerializer):
     price_for_month = SerializerMethodField()
     course_categories = CategoriesSerializer(many=True)
+    amount_of_lessons = SerializerMethodField()
 
     class Meta:
         model = Courses
-        fields = ('id', 'course_name', 'course_duration', 'course_price', 'price_for_month', 'course_description', 'course_for_who', 'course_categories')
+        fields = ('id', 'course_name', 'course_duration', 'amount_of_lessons', 'course_price', 'price_for_month', 'course_description', 'course_for_who', 'course_categories')
 
     def get_price_for_month(self, obj):
         price_for_month = int(obj.course_price / obj.course_duration)
         return price_for_month
+    
+    def get_amount_of_lessons(self, obj):
+        amount = Lessons.objects.filter(lesson_course=obj.id)
+        return len(amount)
 
 
 class LessonsSerializer(serializers.ModelSerializer):
@@ -40,4 +45,4 @@ class LessonsSerializer(serializers.ModelSerializer):
     text_file = TextMaterialSerializer()
     class Meta:
         model = Lessons
-        fields = ('id', 'lesson_name', 'lesson_description', 'lesson_course', 'video_file', 'text_file')
+        fields = ('id', 'lesson_number', 'lesson_name', 'lesson_description', 'lesson_course', 'video_file', 'text_file')
