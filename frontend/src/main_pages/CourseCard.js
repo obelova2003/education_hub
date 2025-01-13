@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function CourseCard() {
   const { id } = useParams();
@@ -61,11 +61,10 @@ function CourseCard() {
       <p>Кол-во уроков в курсе: {course.amount_of_lessons}</p>
 
       <h1>План курса</h1>
-
       {lessons && lessons.length > 0 ? (
         lessons.map((lesson, index) => (
           <div key={index}>
-            <h2>{lesson.lesson_number}. {lesson.lesson_name}</h2>
+            <Link to={`/lessons/${lesson.id}`}>{lesson.lesson_number}. {lesson.lesson_name}</Link>
             <p>Описание урока: {lesson.lesson_description}</p>
           </div>
         ))
