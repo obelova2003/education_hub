@@ -24,12 +24,13 @@ class TextMaterialSerializer(serializers.ModelSerializer):
 
 class CoursesSerializer(serializers.ModelSerializer):
     price_for_month = SerializerMethodField()
-    course_categories = CategoriesSerializer(many=True)
+    # course_categories = CategoriesSerializer(many=True)
+    # is_favorited = SerializerMethodField()
     amount_of_lessons = SerializerMethodField()
 
     class Meta:
         model = Courses
-        fields = ('id', 'course_name', 'course_duration', 'amount_of_lessons', 'course_price', 'price_for_month', 'course_description', 'course_for_who', 'course_categories')
+        fields = ('id', 'course_name', 'course_duration', 'amount_of_lessons', 'course_price', 'price_for_month', 'course_description', 'course_for_who', 'course_categories', 'course_picture')
 
     def get_price_for_month(self, obj):
         price_for_month = int(obj.course_price / obj.course_duration)

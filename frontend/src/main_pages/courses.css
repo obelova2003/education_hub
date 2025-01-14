@@ -1,0 +1,56 @@
+.container {
+    padding: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.header {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.courses-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+    border-bottom: 1px solid #000000;
+}
+
+.course-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.link h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.link p {
+    margin: 5px 0 0;
+    font-size: 1em;
+}

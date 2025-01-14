@@ -37,7 +37,7 @@ class Courses(models.Model):
     
     course_description = models.TextField(null=False, 
                                           blank=False, 
-                                          max_length=250, 
+                                          max_length=350, 
                                           verbose_name="Описание курса")
     
     course_for_who = models.CharField(max_length=150, 
@@ -48,6 +48,8 @@ class Courses(models.Model):
     
     course_categories = models.ManyToManyField(Categories, 
                                                verbose_name='Категории')
+    course_picture = models.ImageField(upload_to='course_picture/', null=True, blank=True,
+                                       verbose_name="Картинка курса")
 
     def __str__(self):
         return f"{self.course_name}"

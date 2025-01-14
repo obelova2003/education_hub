@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+/* App.css */
+@font-face {
+  font-family: 'Nunito';
+  src: url('./fonts/Nunito-SemiBold.ttf') format('truetype');
+  font-weight: 900;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu {
+  background-color: #ffffff;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
 }
 
-.App-link {
-  color: #61dafb;
+.menu li {
+  float: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu a {
+  display: block;
+  color: #DEAE48;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+  color: #DEAE48;
+}
+
+.text-background {
+  position: relative;
+  display: inline-block;
+  padding: -15px 10px;
+  color: #DEAE48;
+  /* background-color: #DDF0D7; */
+}
+
+/* Добавляем отступ для основного контента */
+.main-content {
+  margin-top: 60px; /* Отступ равен высоте меню */
 }
