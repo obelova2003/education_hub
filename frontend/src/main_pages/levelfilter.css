@@ -1,0 +1,23 @@
+.level-filter {
+    margin-bottom: 20px;
+}
+
+.level-filter h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.level-checkbox {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: #555;
+    cursor: pointer;
+}
+
+.level-checkbox input {
+    margin-right: 10px;
+    cursor: pointer;
+}

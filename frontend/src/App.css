@@ -52,10 +52,8 @@ body {
   display: inline-block;
   padding: -15px 10px;
   color: #DEAE48;
-  /* background-color: #DDF0D7; */
 }
 
-/* Добавляем отступ для основного контента */
 .main-content {
-  margin-top: 60px; /* Отступ равен высоте меню */
+  margin-top: 60px;
 }

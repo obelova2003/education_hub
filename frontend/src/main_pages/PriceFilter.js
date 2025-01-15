@@ -8,13 +8,14 @@ function PriceFilter({ minPrice, maxPrice, onPriceChange }) {
       <div className="price-inputs">
         <input
           type="number"
-          placeholder="От"
+          placeholder=" 0"
           value={minPrice}
           onChange={(e) => onPriceChange('min', e.target.value)}
         />
+        <p>–</p>
         <input
           type="number"
-          placeholder="До"
+          placeholder=" 250 000"
           value={maxPrice}
           onChange={(e) => onPriceChange('max', e.target.value)}
         />

@@ -1,16 +1,5 @@
 .price-filter {
-    width: 250px; /* Фиксированная ширина */
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Отступ снизу */
-}
-
-.price-filter h3 {
-    margin-top: 0;
-    font-size: 1.2em;
-    color: #333;
+    margin-bottom: 20px;
 }
 
 .price-inputs {
@@ -19,7 +8,7 @@
 }
 
 .price-inputs input {
-    width: 100%;
+    width: 100px;
     padding: 8px;
     font-size: 1em;
     border: 1px solid #ccc;

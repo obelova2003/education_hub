@@ -1,15 +1,9 @@
 .category-filter {
-    width: 350px;
-    height: 350px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .category-filter select {
-    width: 320px;
-    height: 40px;
+    width: 350px;
     padding: 8px;
     font-size: 1em;
     border: 1px solid #ccc;
@@ -20,16 +14,4 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    white-space: nowrap;
 }
-
-.category-filter select:hover {
-    border-color: #EEC470;
-}
-
-.category-filter select:focus {
-    border-color: #EEC470;
-    box-shadow: 0 0 5px #EEC470;
-}
-
-

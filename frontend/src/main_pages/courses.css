@@ -13,6 +13,21 @@
     gap: 20px;
 }
 
+.filters {
+    height: 400px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filters h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
 .courses-list {
     flex-grow: 1;
     display: flex;

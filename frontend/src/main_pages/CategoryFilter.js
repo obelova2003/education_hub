@@ -4,6 +4,7 @@ import './categoryfilter.css';
 function CategoryFilter({ categories, onCategoryChange, selectedCategory }) {
   return (
     <div className="category-filter">
+      <h3>Категория</h3>
       <select 
         value={selectedCategory || ''} 
         onChange={(e) => onCategoryChange(e.target.value)}
