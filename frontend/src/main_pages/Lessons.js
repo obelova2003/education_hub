@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import mammoth from 'mammoth';
 
 function Lessons() {
   const { id } = useParams();
   const [lesson, setLesson] = useState(null);
-  const [textContent, setTextContent] = useState('');
+  const [htmlContent, setHtmlContent] = useState('');
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/lessons/${id}/`)
       .then(response => response.json())
       .then(data => {
         setLesson(data);
-        // Загружаем текстовый файл
-        fetch(data.text_file.text_file)
-          .then(response => response.text())
-          .then(text => setTextContent(text))
-          .catch(error => console.error('Ошибка загрузки текстового файла:', error));
+        if (data.text_file && data.text_file.text_file) {
+          fetch(data.text_file.text_file)
+            .then(response => response.arrayBuffer())
+            .then(arrayBuffer => {
+              mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
+                .then(result => {
+                  setHtmlContent(result.value);
+                })
+                .catch(error => console.error('Ошибка конвертации:', error));
+            })
+            .catch(error => console.error('Ошибка загрузки файла:', error));
+        }
       })
       .catch(error => console.error('Ошибка:', error));
   }, [id]);
@@ -41,7 +49,7 @@ function Lessons() {
       {lesson.text_file && (
         <div>
           <h2>{lesson.text_file.text_name}</h2>
-          <p>{textContent || 'Ошибка загрузки текста.'}</p>
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </div>
       )}
     </div>
