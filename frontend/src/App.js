@@ -5,6 +5,8 @@ import Courses from "./main_pages/Courses";
 import CourseCard from "./main_pages/CourseCard";
 import Lessons from "./main_pages/Lessons";
 import Menu from "./main_pages/Menu";
+import AddCourse from './main_pages/AddCourse';
+import AddLessonPage from './main_pages/AddLessonPage';
 
 function App() {
   return (
@@ -14,9 +16,11 @@ function App() {
         <div className="main-content">
           <Routes>
             <Route path="/" element={<div>Главная</div>} />
+            <Route path="/courses_add" element={<AddCourse />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:id" element={<CourseCard />} />
             <Route path="/lessons/:id" element={<Lessons />} />
+            <Route path="/courses/:id/lesson_add" element={<AddLessonPage />} />
           </Routes>
         </div>
       </div>

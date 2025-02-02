@@ -23,10 +23,9 @@ class TextMaterialSerializer(serializers.ModelSerializer):
 
 
 class CoursesSerializer(serializers.ModelSerializer):
-    price_for_month = SerializerMethodField()
-    # course_categories = CategoriesSerializer(many=True)
-    # is_favorited = SerializerMethodField()
-    amount_of_lessons = SerializerMethodField()
+    price_for_month = serializers.SerializerMethodField()
+    course_categories = CategoriesSerializer(many=True)
+    amount_of_lessons = serializers.SerializerMethodField()
 
     class Meta:
         model = Courses
@@ -40,10 +39,38 @@ class CoursesSerializer(serializers.ModelSerializer):
         amount = Lessons.objects.filter(lesson_course=obj.id)
         return len(amount)
 
+    def create(self, validated_data):
+        categories_data = validated_data.pop('course_categories', [])
+        
+        course = Courses.objects.create(**validated_data)
+        
+        for category_data in categories_data:
+            category, _ = Categories.objects.get_or_create(**category_data)
+            course.course_categories.add(category)
+
+        return course
+
+    def update(self, instance, validated_data):
+        categories_data = validated_data.pop('course_categories', [])
+        instance.course_name = validated_data.get('course_name', instance.course_name)
+        instance.course_duration = validated_data.get('course_duration', instance.course_duration)
+        instance.course_price = validated_data.get('course_price', instance.course_price)
+        instance.course_description = validated_data.get('course_description', instance.course_description)
+        instance.course_for_who = validated_data.get('course_for_who', instance.course_for_who)
+        instance.course_picture = validated_data.get('course_picture', instance.course_picture)
+        instance.save()
+        instance.course_categories.clear()
+        for category_data in categories_data:
+            category, _ = Categories.objects.get_or_create(**category_data)
+            instance.course_categories.add(category)
+
+        return instance
+
 
 class LessonsSerializer(serializers.ModelSerializer):
-    video_file = VideoMaterialSerializer()
-    text_file = TextMaterialSerializer()
+    video_file = VideoMaterialSerializer(read_only=True)
+    text_file = TextMaterialSerializer(read_only=True)
+
     class Meta:
         model = Lessons
         fields = ('id', 'lesson_number', 'lesson_name', 'lesson_description', 'lesson_course', 'video_file', 'text_file')

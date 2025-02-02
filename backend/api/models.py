@@ -30,16 +30,16 @@ class Courses(models.Model):
     course_duration = models.IntegerField(null=False, 
                                           blank=False, 
                                           default=1, 
-                                          verbose_name="Длительность курса")
+                                          verbose_name="Длительность курса (мес.)")
     
     course_price = models.FloatField(null=False, 
                                      blank=False, 
                                      default=1, 
-                                     verbose_name="Цена курса")
+                                     verbose_name="Цена курса (в руб.)")
     
     course_description = models.TextField(null=False, 
                                           blank=False, 
-                                          max_length=350, 
+                                          max_length=500, 
                                           verbose_name="Описание курса")
     
     course_for_who = models.CharField(max_length=150, 

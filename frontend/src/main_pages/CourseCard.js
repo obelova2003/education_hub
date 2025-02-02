@@ -59,6 +59,9 @@ function CourseCard() {
       <p>Описание курса: {course.course_description}</p>
       <p>Для кого: {course.course_for_who}</p>
       <p>Кол-во уроков в курсе: {course.amount_of_lessons}</p>
+      <Link to={`/courses/${id}/lesson_add`}>
+        <button>Добавить урок</button>
+      </Link>
 
       <h1>План курса</h1>
       {lessons && lessons.length > 0 ? (

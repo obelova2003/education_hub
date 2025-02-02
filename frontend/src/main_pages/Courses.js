@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CategoryFilter from './CategoryFilter';
 import PriceFilter from './PriceFilter';
-import LevelFilter from './LevelFilter'; // Импортируем новый компонент
+import LevelFilter from './LevelFilter';
 import './courses.css';
 
 function Courses() {
@@ -41,7 +41,7 @@ function Courses() {
 
     if (selectedCategory !== null && selectedCategory !== '') {
       filteredCourses = filteredCourses.filter(course => 
-        course.course_categories.includes(parseInt(selectedCategory))
+        course.course_categories.some(category => category.id === parseInt(selectedCategory))
       );
     }
 
@@ -91,7 +91,6 @@ function Courses() {
       <h1 className="header">Курсы</h1>
       <div className="main-content">
         <div className="filters">
-          {/* <h3>Фильтры</h3> */}
           <CategoryFilter 
             categories={categories} 
             onCategoryChange={handleCategoryChange} 
