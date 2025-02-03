@@ -1,21 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Courses from "./main_pages/Courses";
-import CourseCard from "./main_pages/CourseCard";
-import Lessons from "./main_pages/Lessons";
+import Courses from "./courses_pages/Courses";
+import CourseCard from "./courses_pages/CourseCard";
+import Lessons from "./lessons_pages/Lessons";
 import Menu from "./main_pages/Menu";
-import AddCourse from './main_pages/AddCourse';
-import AddLessonPage from './main_pages/AddLessonPage';
+import AddCourse from './courses_pages/AddCourse';
+import AddLessonPage from './lessons_pages/AddLessonPage';
+import Main from './main_pages/Main';
+import Forum from './main_pages/Forum';
 
 function App() {
   return (
     <Router>
       <div>
-        {/* <Menu /> */}
+        <Menu />
         <div className="main-content">
           <Routes>
-            <Route path="/" element={<div>Главная</div>} />
+            <Route path="/" element={<Main />} />
+            <Route path="/forum" element={<Forum />} />
             <Route path="/courses_add" element={<AddCourse />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:id" element={<CourseCard />} />

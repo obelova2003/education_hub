@@ -1,15 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Menu.css';
 
 function Menu() {
   return (
     <nav className="menu">
       <ul>
-        <div className="text-background"><h1>EducationalHUB</h1></div>
-        <li><Link to="/"></Link></li>
-        <li><Link to="/courses"></Link></li>
-        <li><Link to="/about"></Link></li>
-        <li><Link to="/contact"></Link></li>
+        <li>
+          <Link to="/" className="educational-hub">EducationalHUB</Link>
+        </li>
+        <li>
+          <Link to="/forum">Форум</Link>
+        </li>
+        <li>
+          <Link to="/courses">Курсы</Link>
+        </li>
+        <li>
+          <Link to="/courses_add">Добавить курс</Link>
+        </li>
       </ul>
     </nav>
   );

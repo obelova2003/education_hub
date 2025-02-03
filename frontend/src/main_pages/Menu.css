@@ -1,0 +1,39 @@
+.menu {
+    background-color: #f8f9fa;
+    padding: 10px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .menu ul li {
+    display: inline;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    color: #6b7075;
+    font-weight: bold;
+  }
+  
+  /* .menu ul li a:hover {
+    text-decoration: underline;
+  } */
+  
+ 
+  .menu ul li a.educational-hub {
+    font-size: 1.5em;
+    color: #000000;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+  }
+  
+  /* .menu ul li a.educational-hub:hover {
+    color: #000000;
+  } */

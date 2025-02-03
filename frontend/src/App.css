@@ -1,4 +1,3 @@
-/* App.css */
 @font-face {
   font-family: 'Nunito';
   src: url('./fonts/Nunito-SemiBold.ttf') format('truetype');
@@ -13,8 +12,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.menu {
-  background-color: #ffffff;
+/* .menu {
+  background-color: #cb6a6a;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -43,7 +42,7 @@ body {
 }
 
 .menu a:hover {
-  background-color: #ddd;
+  background-color: #66be23;
   color: #DEAE48;
 }
 
@@ -56,4 +55,4 @@ body {
 
 .main-content {
   margin-top: 60px;
-}
+} */
