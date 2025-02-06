@@ -3,27 +3,22 @@
     font-family: 'Nunito', sans-serif;
 }
 
-.header {
-    color: #000000;
-    margin-bottom: 20px;
-}
-
 .main-content {
     display: flex;
     gap: 20px;
 }
 
 .filters {
-    height: 400px;
+    height: 350px;
     padding: 15px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .filters h3 {
     margin-top: 0;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #333;
     margin-bottom: 15px;
 }
@@ -38,34 +33,56 @@
 .card {
     display: flex;
     align-items: center;
+    height: 120px;
     padding: 15px;
-    background-color: white;
-    border-bottom: 1px solid #000000;
+    background-color: rgb(255, 255, 255);
+    border-radius: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.card:hover {
+    /* background-color: #f1f8de; */
+    transform: scale(1.03);
 }
 
 .course-image {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     margin-right: 20px;
+    border-radius: 20px;
 }
 
 .course-info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    color: #000;
 }
 
-.link {
-    text-decoration: none;
-    color: #000000;
-}
-
-.link h2 {
+.course-info h2 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
-.link p {
-    margin: 5px 0 0;
+.course-info p {
+    font-size: 0.7em;
+    /* margin: 1; */
+}
+
+
+.course-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+}
+
+.course-teacher {
+    font-size: 0.9em;
+    color: #7c7c7c;
+}
+
+.course-price {
     font-size: 1em;
 }

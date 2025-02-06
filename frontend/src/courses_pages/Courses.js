@@ -88,7 +88,6 @@ function Courses() {
 
   return (
     <div className="container">
-      <h1 className="header">Курсы</h1>
       <div className="main-content">
         <div className="filters">
           <CategoryFilter 
@@ -108,15 +107,17 @@ function Courses() {
         </div>
         <div className="courses-list">
           {filteredCourses.map(course => (
-            <div className="card" key={course.id}>
+            <Link to={`/courses/${course.id}`} className="card" key={course.id}>
               <img src={course.course_picture} alt={course.course_name} className="course-image" />
               <div className="course-info">
-                <Link to={`/courses/${course.id}`} className="link">
-                  <h2>{course.course_name}</h2>
-                </Link>
-                <p>{course.course_description}</p>
+                <h2>{course.course_name}</h2>
+                <div className="course-teacher"><p>Иван Иванов</p></div>
+                <div className="course-details">
+                  <p>{course.course_description}</p>
+                  <p className="course-price">{course.course_price}₽</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

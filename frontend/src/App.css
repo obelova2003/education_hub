@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Nunito';
-  src: url('./fonts/Nunito-SemiBold.ttf') format('truetype');
+  src: url('./fonts/IkraSlab.ttf') format('truetype');
   font-weight: 900;
 }
 
@@ -11,48 +11,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* .menu {
-  background-color: #cb6a6a;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-}
-
-.menu li {
-  float: left;
-}
-
-.menu a {
-  display: block;
-  color: #DEAE48;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-}
-
-.menu a:hover {
-  background-color: #66be23;
-  color: #DEAE48;
-}
-
-.text-background {
-  position: relative;
-  display: inline-block;
-  padding: -15px 10px;
-  color: #DEAE48;
-}
-
-.main-content {
-  margin-top: 60px;
-} */

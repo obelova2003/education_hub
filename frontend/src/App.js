@@ -9,6 +9,7 @@ import AddCourse from './courses_pages/AddCourse';
 import AddLessonPage from './lessons_pages/AddLessonPage';
 import Main from './main_pages/Main';
 import Forum from './main_pages/Forum';
+import Vhod from './auth/Vhod';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/courses/:id" element={<CourseCard />} />
             <Route path="/lessons/:id" element={<Lessons />} />
             <Route path="/courses/:id/lesson_add" element={<AddLessonPage />} />
+            <Route path="/auth" element={<Vhod />} />
           </Routes>
         </div>
       </div>

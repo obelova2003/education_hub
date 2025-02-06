@@ -14,6 +14,7 @@ function LevelFilter({ selectedLevels, onLevelChange }) {
             checked={selectedLevels.includes(level)}
             onChange={() => onLevelChange(level)}
           />
+          <span className="custom-checkbox"></span>
           {level}
         </label>
       ))}
