@@ -11,7 +11,7 @@ body {
   }
 
   .hero-section {
-    background: linear-gradient(10deg, #ffffff, #DACCFF);
+    /* background: linear-gradient(10deg, #ffffff, #DACCFF); */
     /* background: white; */
     color: rgb(0, 0, 0);
     width: 100%;
@@ -61,7 +61,7 @@ body {
   
 
   .features-section {
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
     padding: 50px 20px;
     width: 100%;
     text-align: center;

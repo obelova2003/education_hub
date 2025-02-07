@@ -114,7 +114,7 @@ function Courses() {
                 <div className="course-teacher"><p>Иван Иванов</p></div>
                 <div className="course-details">
                   <p>{course.course_description}</p>
-                  <p className="course-price">{course.course_price}₽</p>
+                  <p className="course-price">{course.price_for_month}₽/мес.</p>
                 </div>
               </div>
             </Link>

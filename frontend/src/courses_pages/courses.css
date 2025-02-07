@@ -48,17 +48,17 @@
 }
 
 .course-image {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     margin-right: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .course-info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color: #000;
+    color: #000000;
 }
 
 .course-info h2 {
@@ -85,4 +85,5 @@
 
 .course-price {
     font-size: 1em;
+    color: #333;
 }
