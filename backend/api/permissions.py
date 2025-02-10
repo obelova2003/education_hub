@@ -1,13 +1,12 @@
-from rest_framework.permissions import BasePermission
+from rest_framework import permissions
 
-class IsTeacher(BasePermission):
-    def has_permission(self, request, view):
-        return request.user.is_teacher
+class TeacherRole(permissions.BasePermission):
 
-class IsStudent(BasePermission):
     def has_permission(self, request, view):
-        return request.user.is_student
+        return request.user.role == 'teacher'
+    
 
-class IsAdmin(BasePermission):
+class StudentRole(permissions.BasePermission):
+
     def has_permission(self, request, view):
-        return request.user.is_admin
+        return request.user.role == 'student'
