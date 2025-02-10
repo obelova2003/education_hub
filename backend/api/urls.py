@@ -1,6 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 
+from users.views import UserViewSet, LoginViewSet, LogoutViewSet
+
 from . import views
 
 router = SimpleRouter()
@@ -11,6 +13,9 @@ router.register('lessons', views.LessonsViewSet)
 router.register('videomaterials', views.VideoMaterialViewSet)
 router.register('textmaterials', views.TextMaterialViewSet)
 
+router.register('users', UserViewSet, basename='users')
+router.register('auth', LoginViewSet, basename='auth')
+router.register('logout', LogoutViewSet, basename='logout')
 
 urlpatterns = [
     path('', include(router.urls)),
