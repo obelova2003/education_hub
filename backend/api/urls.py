@@ -12,7 +12,6 @@ router.register('videomaterials', views.VideoMaterialViewSet)
 router.register('textmaterials', views.TextMaterialViewSet)
 
 
-
 urlpatterns = [
     path('', include(router.urls)),
 ]

@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-from api.models import Categories, Courses, Lessons, VideoMaterial, TextMaterial, Users
+from api.models import Categories, Courses, Lessons, VideoMaterial, TextMaterial
 
-admin.site.register(Users)
 admin.site.register(Categories)
 admin.site.register(Courses)
 admin.site.register(Lessons)
