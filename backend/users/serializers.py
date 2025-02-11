@@ -34,6 +34,8 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Users
         fields = '__all__'
+        read_only_fields = ('last_login', 'is_superuser', 
+                            'is_staff', 'is_active', 'date_joined', 'groups', 'user_permissions')
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -41,3 +43,5 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Users
         fields = '__all__'
+        read_only_fields = ('last_login', 'is_superuser', 
+                            'is_staff', 'is_active', 'date_joined', 'groups', 'user_permissions')
