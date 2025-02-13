@@ -4,7 +4,7 @@ import './App.css';
 import Courses from "./courses_pages/Courses";
 import CourseCard from "./courses_pages/CourseCard";
 import Lessons from "./lessons_pages/Lessons";
-import Menu from "./main_pages/Menu";
+import Menu from "./menu/Menu";
 import AddCourse from './courses_pages/AddCourse';
 import AddLessonPage from './lessons_pages/AddLessonPage';
 import Main from './main_pages/Main';
