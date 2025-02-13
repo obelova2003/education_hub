@@ -10,6 +10,7 @@ from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.core.exceptions import ValidationError
+from rest_framework_simplejwt.exceptions import TokenError
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = Users.objects.all()
@@ -81,13 +82,18 @@ class LogoutViewSet(viewsets.GenericViewSet):
     serializer_class = serializers.LogoutSerializer
 
     @action(
-        methods=['POST',],
+        methods=['POST'],
         detail=False,
         permission_classes=(IsAuthenticated,)
     )
     def logout(self, request):
-        Refresh_token = request.data["refresh"]
-        token = RefreshToken(Refresh_token)
-        token.blacklist()
-        return Response({"message": "Токен удален"}, status=status.HTTP_200_OK)
+        try:
+            refresh_token = request.data["refresh"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response({"message": "Токен успешно аннулирован"}, status=status.HTTP_200_OK)
+        except TokenError as e:
+            return Response({"error": "Недействительный токен"}, status=status.HTTP_400_BAD_REQUEST)
+        except KeyError:
+            return Response({"error": "Refresh-токен не предоставлен"}, status=status.HTTP_400_BAD_REQUEST)
     

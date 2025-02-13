@@ -29,11 +29,20 @@ const Login = () => {
                 localStorage.setItem('access_token', response.data.access);
                 localStorage.setItem('refresh_token', response.data.refresh);
 
+                console.log('Токены сохранены:', {
+                    access: response.data.access,
+                    refresh: response.data.refresh,
+                });
                 navigate('/courses');
             }
         } catch (err) {
             setError('Ошибка при входе. Проверьте логин и пароль.');
-            console.error(err);
+            console.error('Ошибка при входе:', err);
+
+            if (err.response) {
+                console.error('Данные ответа сервера:', err.response.data);
+                console.error('Статус ответа:', err.response.status);
+            }
         }
     };
 

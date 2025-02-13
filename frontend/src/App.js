@@ -11,6 +11,7 @@ import Main from './main_pages/Main';
 import Forum from './main_pages/Forum';
 import Registration from './auth/Registration';
 import Login from './auth/Login';
+import Logout from './auth/Logout';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/courses/:id/lesson_add" element={<AddLessonPage />} />
             <Route path="/auth" element={<Login />} />
             <Route path="/register" element={<Registration />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
         </div>
       </div>
