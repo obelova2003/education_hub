@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 
-from api.models import Categories, Courses, Lessons, VideoMaterial, TextMaterial
+from api.models import Categories, Courses, Lessons
 from api.filters import CoursesFilter, LessonsFilter
 
 from . import serializers
@@ -30,15 +30,3 @@ class LessonsViewSet(viewsets.ModelViewSet):
 
     filter_backends = [DjangoFilterBackend]
     filterset_class = LessonsFilter
-
-
-class VideoMaterialViewSet(viewsets.ModelViewSet):
-    queryset = VideoMaterial.objects.all()
-    serializer_class = serializers.VideoMaterialSerializer
-    pagination_class = None
-
-
-class TextMaterialViewSet(viewsets.ModelViewSet):
-    queryset = TextMaterial.objects.all()
-    serializer_class = serializers.TextMaterialSerializer
-    pagination_class = None

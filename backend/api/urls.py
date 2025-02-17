@@ -10,8 +10,6 @@ router = SimpleRouter()
 router.register('categories', views.CategoriesViewSet)
 router.register('courses', views.CoursesViewSet)
 router.register('lessons', views.LessonsViewSet)
-router.register('videomaterials', views.VideoMaterialViewSet)
-router.register('textmaterials', views.TextMaterialViewSet)
 
 router.register('users', UserViewSet, basename='users')
 router.register('auth', LoginViewSet, basename='auth')

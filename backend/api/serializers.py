@@ -1,24 +1,11 @@
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
                                    
-from api.models import Categories, Courses, Lessons, VideoMaterial, TextMaterial
-
+from api.models import Categories, Courses, Lessons
 
 class CategoriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categories
-        fields = '__all__'
-
-
-class VideoMaterialSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = VideoMaterial
-        fields = '__all__'
-
-
-class TextMaterialSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TextMaterial
         fields = '__all__'
 
 
@@ -68,9 +55,6 @@ class CoursesSerializer(serializers.ModelSerializer):
 
 
 class LessonsSerializer(serializers.ModelSerializer):
-    video_file = VideoMaterialSerializer(read_only=True)
-    text_file = TextMaterialSerializer(read_only=True)
-
     class Meta:
         model = Lessons
         fields = ('id', 'lesson_number', 'lesson_name', 'lesson_description', 'lesson_course', 'video_file', 'text_file')

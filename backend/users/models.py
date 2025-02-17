@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser 
+from django.contrib.auth.models import AbstractUser
+
+from users.validators import validate_password, validate_phone_number, validate_username 
 
 
 ROLES = (
@@ -17,17 +19,28 @@ class Users(AbstractUser):
                                    null=True,
                                    blank=True,
                                    verbose_name='Отчество')
-    username = models.CharField(max_length=150,
+    username = models.CharField(validators=(validate_username,),
+                                max_length=150,
                                 unique=True,
                                 verbose_name='Логин')
     date_of_birth = models.DateField(null=True, 
                                     blank=True,
                                     verbose_name="Дата рождения")
-    email = models.EmailField(max_length=254, unique=True,
+    email = models.EmailField(max_length=254, 
+                              unique=True,
                               verbose_name='Почта')
-    telephone = models.CharField(max_length=20, blank=True, null=True)
-    profile_photo = models.ImageField(upload_to='profile_photos/', blank=True, null=True)
-    role = models.CharField(max_length=10, choices=ROLES)
+    telephone = models.CharField(validators=[validate_phone_number],
+                                max_length=11, 
+                                blank=True, 
+                                null=True)
+    profile_photo = models.ImageField(upload_to='profile_photos/', 
+                                      blank=True, 
+                                      null=True)
+    role = models.CharField(max_length=10, 
+                            choices=ROLES)
+    password = models.CharField(max_length=128, 
+                                validators=[validate_password])
+    
     
 
     class Meta:
