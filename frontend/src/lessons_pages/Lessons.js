@@ -12,8 +12,8 @@ function Lessons() {
       .then(response => response.json())
       .then(data => {
         setLesson(data);
-        if (data.text_file && data.text_file.text_file) {
-          fetch(data.text_file.text_file)
+        if (data.text_file) {
+          fetch(data.text_file)
             .then(response => response.arrayBuffer())
             .then(arrayBuffer => {
               mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
@@ -37,18 +37,17 @@ function Lessons() {
 
       {lesson.video_file && (
         <div>
-          <h2>{lesson.video_file.video_name}</h2>
+          <h2>Видео урока</h2>
           <video width="300" controls>
-            <source src={lesson.video_file.video_file} type="video/mp4" />
+            <source src={lesson.video_file} type="video/mp4" />
             Ваш браузер не поддерживает видео.
           </video>
-          <p>{lesson.video_file.video_description}</p>
         </div>
       )}
 
       {lesson.text_file && (
         <div>
-          <h2>{lesson.text_file.text_name}</h2>
+          <h2>Текстовый материал</h2>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </div>
       )}

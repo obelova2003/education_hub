@@ -1,6 +1,5 @@
 from django.db import models
 
-from users.models import Users
 
 class Categories(models.Model):
     category_name = models.CharField(max_length=100, 
@@ -42,17 +41,11 @@ class Courses(models.Model):
                                           blank=False, 
                                           max_length=500, 
                                           verbose_name="Описание курса")
-    
     course_for_who = models.CharField(max_length=150, 
                                       choices=LEVEL, 
                                       null=False, 
                                       blank=False, 
                                       verbose_name="Для кого")
-    course_teacher = models.ForeignKey(Users,
-                                        on_delete=models.CASCADE,
-                                        null=True,
-                                        blank=True,
-                                        verbose_name="Преподаватель курса")
     course_categories = models.ManyToManyField(Categories, 
                                                verbose_name='Категории')
     course_picture = models.ImageField(upload_to='course_picture/', null=True, blank=True,
@@ -91,5 +84,6 @@ class Lessons(models.Model):
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
+
 
 
