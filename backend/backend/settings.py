@@ -14,7 +14,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'api.apps.ApiConfig',
-    'users.apps.UsersConfig',
+    'forum.apps.ForumConfig',
+    'course.apps.CourseConfig',
+    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -91,7 +93,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'users.Users'
+AUTH_USER_MODEL = 'user.Users'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
