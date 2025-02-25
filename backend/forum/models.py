@@ -47,8 +47,8 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
 
     class Meta:
-        verbose_name = 'Ответ'
-        verbose_name_plural = 'Ответы'
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
         ordering = ['-created_at']
 
     def __str__(self):
