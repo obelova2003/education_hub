@@ -1,0 +1,28 @@
+.price-filter {
+    margin-bottom: 20px;
+}
+
+.price-inputs {
+    display: flex;
+    gap: 20px;
+}
+
+.price-inputs input {
+    width: 90px;
+    height: 20px;
+    padding: 8px;
+    font-size: 1em;
+    border: 3px solid #DACCFF;
+    border-radius: 15px;
+    outline: none;
+}
+
+.price-inputs input:focus {
+    border-color: #DACCFF;
+    box-shadow: 0 0 5px #DACCFF;
+}
+
+.price-text {
+    font-size: 0.8em;
+    color: #707070;
+}

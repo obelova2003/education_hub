@@ -1,8 +1,15 @@
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
                                    
-from course.models import Categories, Courses, Lessons
+from course.models import Categories, Courses, Lessons, Materials
 from forum.models import Thread, Post, Reply
+
+
+class MaterialsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Materials
+        fields = '__all__'
+
 
 class CategoriesSerializer(serializers.ModelSerializer):
     class Meta:

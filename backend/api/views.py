@@ -2,11 +2,16 @@ from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 
-from course.models import Categories, Courses, Lessons
+from course.models import Categories, Courses, Lessons, Materials
 from forum.models import Thread, Post, Reply
 from api.filters import CoursesFilter, LessonsFilter
 
 from . import serializers
+
+class MaterialsViewSet(viewsets.ModelViewSet):
+    queryset = Materials.objects.all()
+    serializer_class = serializers.MaterialsSerializer
+    pagination_class = None
 
 
 class CategoriesViewSet(viewsets.ReadOnlyModelViewSet):

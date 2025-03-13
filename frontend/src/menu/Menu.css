@@ -1,0 +1,139 @@
+/* .menu {
+  background-color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-left,
+.menu-center,
+.menu-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.menu-left .educational-hub {
+  font-size: 1.6em;
+  color: #000000;
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
+.menu-left .educational-hub .logo {
+  width: 33px;
+  height: auto;
+}
+
+.menu-center .forum-link {
+  color: #000000;
+  font-size: 1.2em;
+  border-radius: 25px;
+  position: relative;
+  padding: 5px 10px;
+  transition: background-color;
+}
+
+.menu-center .forum-link:hover {
+  background-color: #EDF7D3;
+  border-radius: 18px;
+}
+
+.menu-center .courses-link {
+  color: #000000;
+  font-size: 1.2em;
+  border-radius: 25px;
+  position: relative;
+  padding: 5px 10px;
+  transition: background-color;
+}
+
+.menu-center .courses-link:hover {
+  background-color: #EDF7D3;
+  border-radius: 18px;
+}
+
+.menu-right .add-course-link {
+  color: #000000;
+  font-size: 1.2em;
+}
+
+.menu-right .add-course-link:hover {
+  color: #000000;
+} */
+
+
+.menu {
+  background-color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-left,
+.menu-center,
+.menu-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.menu-left .educational-hub {
+  color: #E5DBFF;
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
+.menu-left .educational-hub .logo {
+  width: 230px;
+  height: auto;
+}
+
+.menu-center .forum-link,
+.menu-center .courses-link {
+  color: #000000;
+  font-size: 1em;
+  border-radius: 25px;
+  position: relative;
+  padding: 5px 10px;
+  transition: background-color;
+}
+
+.menu-center .forum-link:hover,
+.menu-center .courses-link:hover {
+  background-color: #EDF7D3;
+  border-radius: 18px;
+}
+
+.menu-right .add-auth-link {
+  color: #000000;
+  font-size: 1em;
+  padding: 5px 30px;
+}
+
+.menu-right .add-auth-link:hover {
+  color: #000000;
+}
+
+.menu-center .active {
+  background-color: #EDF7D3;
+  border-radius: 18px;
+}

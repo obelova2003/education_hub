@@ -91,11 +91,22 @@ class Lessons(models.Model):
     def __str__(self):
         return f"{self.lesson_number}. {self.lesson_name}"
     
-
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
         ordering = ["lesson_number"]
 
 
+class Materials(models.Model):
+    material_name = models.CharField(max_length=255, null=False, blank=False,
+                                   verbose_name="Название материала")
+    material_description = models.TextField(max_length=500, null=False, blank=False,
+                                   verbose_name="Описание материала")
+    file = models.FileField(null=True, blank=True, upload_to='dop_materials/', verbose_name="Файл")
 
+    def __str__(self):
+        return f"{self.material_name}"
+    
+    class Meta:
+        verbose_name = "Дополнительный материал"
+        verbose_name_plural = "Дополнительные материалы"
