@@ -68,7 +68,6 @@ const AddCourse = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Данные для отправки:", formData);
 
     try {
       const data = new FormData();
@@ -94,7 +93,6 @@ const AddCourse = () => {
         },
       });
 
-      console.log("Ответ сервера:", response.data);
       window.location.href = '/courses';
     } catch (error) {
       console.error("Ошибка при создании курса:", error.response?.data || error.message);
@@ -109,111 +107,102 @@ const AddCourse = () => {
         {error && <p className="error-message">{error}</p>}
         <form className="course-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label">
-              Название курса:
-              <input
-                type="text"
-                name="course_name"
-                value={formData.course_name}
-                onChange={handleChange}
-                className="form-input"
-                required
-              />
-            </label>
+            <label className="form-label">Название курса:</label>
+            <input
+              type="text"
+              name="course_name"
+              value={formData.course_name}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label className="form-label">
-              Длительность курса (в месяцах):
-              <input
-                type="number"
-                name="course_duration"
-                value={formData.course_duration}
-                onChange={handleChange}
-                className="form-input"
-                required
-              />
-            </label>
+            <label className="form-label">Длительность курса (в месяцах):</label>
+            <input
+              type="number"
+              name="course_duration"
+              value={formData.course_duration}
+              onChange={handleChange}
+              className="form-input"
+              min="1"
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label className="form-label">
-              Цена курса (в руб.):
-              <input
-                type="number"
-                name="course_price"
-                value={formData.course_price}
-                onChange={handleChange}
-                className="form-input"
-                required
-              />
-            </label>
+            <label className="form-label">Цена курса (в руб.):</label>
+            <input
+              type="number"
+              name="course_price"
+              value={formData.course_price}
+              onChange={handleChange}
+              className="form-input"
+              min="0"
+              step="0.01"
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label className="form-label">
-              Описание курса:
-              <textarea
-                name="course_description"
-                value={formData.course_description}
-                onChange={handleChange}
-                className="form-textarea"
-                required
-              />
-            </label>
+            <label className="form-label">Описание курса:</label>
+            <textarea
+              name="course_description"
+              value={formData.course_description}
+              onChange={handleChange}
+              className="form-textarea"
+              rows="4"
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label className="form-label">
-              Для кого курс:
-              <select
-                name="course_for_who"
-                value={formData.course_for_who}
-                onChange={handleChange}
-                className="form-select"
-                required
-              >
-                <option value="Для начинающих">Для начинающих</option>
-                <option value="Для продолжающих">Для продолжающих</option>
-                <option value="Для продвинутых">Для продвинутых</option>
-                <option value="Для всех">Для всех</option>
-              </select>
-            </label>
+            <label className="form-label">Для кого курс:</label>
+            <select
+              name="course_for_who"
+              value={formData.course_for_who}
+              onChange={handleChange}
+              className="form-select"
+              required
+            >
+              <option value="Для начинающих">Для начинающих</option>
+              <option value="Для продолжающих">Для продолжающих</option>
+              <option value="Для продвинутых">Для продвинутых</option>
+              <option value="Для всех">Для всех</option>
+            </select>
           </div>
 
           <div className="form-group">
-            <label className="form-label">
-              Категории:
-              <ul className="categories-list">
-                {categories.map((category) => (
-                  <li key={category.id} className="category-item">
-                    <input
-                      type="checkbox"
-                      name="course_categories"
-                      value={String(category.id)}
-                      checked={formData.course_categories.some(
-                        (c) => c.id === category.id
-                      )}
-                      onChange={handleCheckboxChange}
-                      className="category-checkbox"
-                    />
-                    <span className="category-name">{category.category_name}</span>
-                  </li>
-                ))}
-              </ul>
-            </label>
+            <label className="form-label">Категории:</label>
+            <ul className="categories-list">
+              {categories.map((category) => (
+                <li key={category.id} className="category-item">
+                  <input
+                    type="checkbox"
+                    id={`category-${category.id}`}
+                    name="course_categories"
+                    value={String(category.id)}
+                    checked={formData.course_categories.some(c => c.id === category.id)}
+                    onChange={handleCheckboxChange}
+                    className="category-checkbox"
+                  />
+                  <label htmlFor={`category-${category.id}`} className="category-name">
+                    {category.category_name}
+                  </label>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="form-group">
-            <label className="form-label">
-              Картинка курса:
-              <input
-                type="file"
-                name="course_picture"
-                onChange={handleFileChange}
-                className="form-file"
-              />
-            </label>
+            <label className="form-label">Картинка курса:</label>
+            <input
+              type="file"
+              name="course_picture"
+              onChange={handleFileChange}
+              className="form-file"
+            />
           </div>
 
           <button type="submit" className="form-button">Создать курс</button>

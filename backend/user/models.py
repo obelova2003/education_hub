@@ -41,7 +41,6 @@ class Users(AbstractUser):
     password = models.CharField(max_length=128, 
                                 validators=[validate_password])
     
-    
 
     class Meta:
         verbose_name = 'Пользователь'
